@@ -1,11 +1,14 @@
 import 'package:amplify_flutter/amplify_flutter.dart';
 import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
+import 'package:cognitoauth/api_service.dart';
 import 'package:flutter/material.dart';
 import 'package:amplify_authenticator/amplify_authenticator.dart';
+import 'package:get_it/get_it.dart';
 
 import 'amplifyconfiguration.dart';
 
 void main() {
+  GetIt.instance.registerSingleton<ApiService>(ApiService());
   runApp(const MyApp());
 }
 
@@ -82,6 +85,9 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void _incrementCounter() async {
+    final apiService = GetIt.I.get<ApiService>();
+    await apiService.makeApiCall();
+
     await signOutCurrentUser();
 
     setState(() {

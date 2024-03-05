@@ -37,13 +37,8 @@ public class UserAuthenticationFilter extends OncePerRequestFilter {
         try {
             if (context.getAuthentication() instanceof JwtAuthenticationToken) {
                 JwtAuthenticationToken auth = (JwtAuthenticationToken) context.getAuthentication();
-                String cognitoSub = auth.getName();
-                //User user = userRepository.findByCognitoSub(cognitoSub);
-                UserDetails user = User.builder().username("mcfall@hope.edu").build();
-                if (user == null) {
-                    throw new UsernameNotFoundException("User not found!");
-                }
-                request.setAttribute(CURRENT_USER_ATTRIBUTE, user);
+                String cognitoSub = auth.getName();                
+                request.setAttribute(CURRENT_USER_ATTRIBUTE, cognitoSub);
             }
         } catch (UsernameNotFoundException ex) {
             // log.error("Encountered error while finding user with current authentication token", ex);

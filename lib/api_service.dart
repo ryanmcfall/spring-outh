@@ -14,6 +14,7 @@ class ApiService {
       final result = await cognitoPlugin.fetchAuthSession();
       var tokens = result.userPoolTokensResult.value;
       _bearer = tokens.accessToken;
+      _bearer = tokens.idToken;
       _tokensRetrieved = true;
     }
     return Future<JsonWebToken>(() => _bearer);
@@ -21,9 +22,8 @@ class ApiService {
 
   makeApiCall() async {
     final bearer = await _getBearer();
-    print(bearer);
     var response = await http.get(Uri.parse("http://localhost:8080/api/test"),
-        headers: {"Bearer": bearer.raw, "Authorization": bearer.raw});
+        headers: {"Authorization": "Bearer ${bearer.raw}"});
     print(response.body);
   }
 }

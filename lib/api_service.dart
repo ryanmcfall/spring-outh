@@ -23,7 +23,7 @@ class ApiService {
     final bearer = await _getBearer();
     print(bearer);
     var response = await http.get(Uri.parse("http://localhost:8080/api/test"),
-        headers: {"Bearer": bearer.raw});
+        headers: {"Bearer": bearer.raw, "Authorization": bearer.raw});
     print(response.body);
   }
 }

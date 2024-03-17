@@ -1,10 +1,10 @@
 {
   "version": "1",
   "cognitoConfig": {
-    "identityPoolName": "cognitoauth626dcdde_identitypool_626dcdde",
+    "identityPoolName": "cognitoauth7150f017_identitypool_7150f017",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "cognit626dcdde",
-    "userPoolName": "cognitoauth626dcdde_userpool_626dcdde",
+    "resourceNameTruncated": "cognit7150f017",
+    "userPoolName": "cognitoauth7150f017_userpool_7150f017",
     "autoVerifiedAttributes": [
       "email"
     ],
@@ -31,15 +31,22 @@
     "userpoolClientReadAttributes": [
       "email"
     ],
-    "userpoolClientLambdaRole": "cognit626dcdde_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "cognit7150f017_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "626dcdde",
-    "resourceName": "cognitoauth626dcdde",
+    "sharedId": "7150f017",
+    "resourceName": "cognitoauth7150f017",
     "authSelections": "identityPoolAndUserPool",
-    "useDefault": "default",
+    "useDefault": "defaultSocial",
+    "hostedUI": true,
     "usernameAttributes": [
       "email"
     ],
+    "hostedUIDomainName": "imheretest",
+    "authProvidersUserPool": [
+      "Google"
+    ],
+    "hostedUIProviderMeta": "[{\"ProviderName\":\"Google\",\"authorize_scopes\":\"openid email profile\",\"AttributeMapping\":{\"email\":\"email\",\"username\":\"sub\"}}]",
+    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"myapp://\",\"http://localhost:3000/\"],\"LogoutURLs\":[\"myapp://\",\"http://localhost:3000/\"]}",
     "userPoolGroupList": [],
     "serviceName": "Cognito",
     "usernameCaseSensitive": false,

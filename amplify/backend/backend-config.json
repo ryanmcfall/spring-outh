@@ -1,6 +1,6 @@
 {
   "auth": {
-    "cognitoauth626dcdde": {
+    "cognitoauth7150f017": {
       "customAuth": false,
       "dependsOn": [],
       "frontendAuthConfig": {
@@ -15,7 +15,9 @@
         "signupAttributes": [
           "EMAIL"
         ],
-        "socialProviders": [],
+        "socialProviders": [
+          "GOOGLE"
+        ],
         "usernameAttributes": [
           "EMAIL"
         ],

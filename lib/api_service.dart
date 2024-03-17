@@ -12,9 +12,12 @@ class ApiService {
       final cognitoPlugin =
           Amplify.Auth.getPlugin(AmplifyAuthCognito.pluginKey);
       final result = await cognitoPlugin.fetchAuthSession();
+      final currentUser = await cognitoPlugin.getCurrentUser();
+      print(currentUser);
       var tokens = result.userPoolTokensResult.value;
       _bearer = tokens.accessToken;
       _bearer = tokens.idToken;
+      var familyName = _bearer.familyName;
       _tokensRetrieved = true;
     }
     return Future<JsonWebToken>(() => _bearer);
@@ -22,6 +25,7 @@ class ApiService {
 
   makeApiCall() async {
     final bearer = await _getBearer();
+    print(bearer);
     var response = await http.get(Uri.parse("http://localhost:8080/api/test"),
         headers: {"Authorization": "Bearer ${bearer.raw}"});
     print(response.body);

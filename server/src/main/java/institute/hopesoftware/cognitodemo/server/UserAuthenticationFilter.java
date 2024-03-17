@@ -36,8 +36,12 @@ public class UserAuthenticationFilter extends OncePerRequestFilter {
         SecurityContext context = SecurityContextHolder.getContext();
         try {
             if (context.getAuthentication() instanceof JwtAuthenticationToken) {
-                JwtAuthenticationToken auth = (JwtAuthenticationToken) context.getAuthentication();
-                String cognitoSub = auth.getName();                
+                JwtAuthenticationToken auth = (JwtAuthenticationToken) context.getAuthentication();            
+                String cognitoSub = auth.getName();      
+                String familyName = (String) auth.getTokenAttributes().get("family_name");
+                String givenName = (String) auth.getTokenAttributes().get("given_name");
+                String email = (String) auth.getTokenAttributes().get("email");
+
                 request.setAttribute(CURRENT_USER_ATTRIBUTE, cognitoSub);
             }
         } catch (UsernameNotFoundException ex) {

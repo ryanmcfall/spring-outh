@@ -10,6 +10,16 @@
       "StackName": "amplify-cognitoauth-dev-81807",
       "StackId": "arn:aws:cloudformation:us-east-2:992382683310:stack/amplify-cognitoauth-dev-81807/7ac36e60-d960-11ee-b89d-06f0de2397f7",
       "AmplifyAppId": "d2er5mh9y7ow8t"
+    },
+    "categories": {
+      "auth": {
+        "cognitoauth9bb13ee3": {
+          "userPoolId": "us-east-2_iYML9ELHn",
+          "userPoolName": "cognito-auth-user-pool",
+          "webClientId": "7rvfrblbmmc16ckguop7gg2ljd",
+          "nativeClientId": "7rvfrblbmmc16ckguop7gg2ljd"
+        }
+      }
     }
   }
 }
